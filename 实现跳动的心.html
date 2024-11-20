@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳动的心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .heart {
+            width: 200px;
+            height: 200px;
+            background: black;
+            position: relative;
+            transform: rotate(45deg);
+            animation: heartbeat 1s ease-in-out alternate infinite;
+            box-shadow: 0 0 30px darkblue;
+        }
+
+
+        /* 让容器的高宽充满全屏，这样div才会居中 */
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+
+            /* 设置为弹性盒 */
+            display: flex;
+            flex-direction: row;
+            /* 内容水平垂直都居中 */
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(9, 76, 98, 0.701);
+        }
+
+        .heart::before {
+            content: "";
+            width: 200px;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+            top: -99px;
+            border-radius: 100px 100px 0 0;
+        }
+
+        .heart::after {
+            content: "";
+            width: 100px;
+            height: 200px;
+            background-color: black;
+            position: absolute;
+            left: -99px;
+            top: 0;
+            border-radius: 100px 0 0 100px;
+        }
+
+        /* 添加动画效果 */
+        @keyframes heartbeat {
+            0% {
+                transform: rotate(45deg) scale(0.6);
+            }
+
+            100% {
+                transform: rotate(45deg) scale(1.4);
+            }
+        }
+
+        p {
+            width: auto;
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            position: relative;
+            left: 200px;
+            /* 保留空格 */
+            white-space: pre 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heart"></div>
+    <p>BLACKHEART'S  BEATING</p>
+</body>
+
+</html>

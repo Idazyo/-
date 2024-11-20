@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火柴人动画</title>
+    <style>
+        body {
+            background-color: rgb(11, 11, 71);
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            margin: 50px;
+        }
+
+        .person {
+            position: absolute;
+            left: 150px;
+            top: 160px;
+            animation: bobrun 2.5s infinite ease-in;
+        }
+
+        .head {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            border: 5px solid white;
+            top: -30px;
+            left: -10px;
+            animation: bobhead 2s infinite alternate;
+        }
+
+        .person .torso {
+            position: absolute;
+            height: 70px;
+            width: 0;
+            border-left: 6px solid white;
+            top: 8px;
+            left: 0px;
+        }
+
+        .person .part {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .person .part.arm {
+            position: absolute;
+            border-left: 5px solid white;
+            border-bottom: 5px solid white;
+            height: 50px;
+            width: 35px;
+            top: 10px;
+            right: 300px;
+            transform-origin: 0% 0% 0px;
+            animation: bobarm 1s infinite ease-in-out;
+        }
+
+        .person .part.leg {
+            position: absolute;
+            height: 55px;
+            width: 40px;
+            border-right: 5px solid white;
+            border-top: 5px solid white;
+            top: 76px;
+            right: 298px;
+            transform-origin: 0% 0% 0px;
+            animation: bobleg 1s infinite ease-in-out;
+        }
+
+        .person .part.arm.one {
+            transform: rotate3d(0, 0, 1, 80deg);
+        }
+
+        .person .part.arm.two {
+            transform: rotate3d(0, 0, 1, -80deg);
+            /* 两条胳膊有时间差 */
+            animation-delay: 0.5s;
+        }
+
+        .person .part.leg.one {
+            transform: rotate3d(0, 0, 1, 100deg);
+        }
+
+        .person .part.leg.two {
+            transform: rotate3d(0, 0, 1, 10deg);
+            /* 两条腿有时间差 */
+            animation-delay: 0.5s;
+        }
+
+        /* 头部添加动画 */
+        @keyframes bobhead {
+            0% {
+                transform: rotate3d(0, 0, 1, 5deg);
+            }
+
+            25% {
+                transform: rotate3d(0, 0, 1, -30deg) skew(15deg, 0deg)
+            }
+
+            50% {
+                transform: rotate3d(0, 0, 1, 5deg)
+            }
+
+            75% {
+                transform: rotate3d(0, 0, 1, -30deg) skew(15deg, 0deg)
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 1, 20deg) skew(-15deg, 0deg)
+            }
+
+        }
+
+        /* 胳膊添加动画 */
+        @keyframes bobarm {
+            0% {
+                transform: rotate3d(0, 0, 1, 80deg);
+            }
+
+            50% {
+                transform: rotate3d(0, 0, 1, -70deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 1, 80deg);
+            }
+        }
+
+        /* 腿添加动画 */
+        @keyframes bobleg {
+            0% {
+                transform: rotate3d(0, 0, 1, -5deg);
+            }
+
+            50% {
+                transform: rotate3d(0, 0, 1, 150deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 1, -5deg);
+            }
+        }
+
+        /* 整个火柴人跑起来 */
+        @keyframes bobrun {
+            0% {
+                transform: translate(-200px, 0);
+            }
+
+            100% {
+                transform: translate(1800px, 0px);
+            }
+        }
+
+        p {
+            font-family: 宋体;
+            font-size: 50px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            width: auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="person">
+            <div class="head"></div>
+            <div class="part arm one"></div>
+            <div class="part arm two"></div>
+            <div class="torso"></div>
+            <div class="part leg one"></div>
+            <div class="part leg two"></div>
+
+        </div>
+    </div>
+    <p>火柴人奔跑动画展示</p>
+</body>
+
+</html>
